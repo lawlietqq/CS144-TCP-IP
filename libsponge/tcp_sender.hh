@@ -7,6 +7,7 @@
 #include "wrapping_integers.hh"
 
 #include <functional>
+#include <map>
 #include <queue>
 
 //! \brief The "sender" part of a TCP implementation.
@@ -17,6 +18,14 @@
 //! segments if the retransmission timer expires.
 class TCPSender {
   private:
+    int _timeout{-1};                              // chaoshishijian
+    int _timecount{0};                             // dui shijian jinxing jishu
+    std::map<size_t, TCPSegment> _outgoing_map{};  // YIJING FASONG DANSHI HAIMEIYOUSHOUDAO HUIFU DE ZIJIE
+    size_t _outgoing_bytes{0};
+    size_t _last_window_size{1};  // yuancheng chuangkou daxiao
+    bool _set_syn_flag{false};
+    bool _set_fin_flag{false};
+    size_t _consecutive_retransmissions_count{0};  // chongchuancishu
     //! our initial sequence number, the number for our SYN.
     WrappingInt32 _isn;
 

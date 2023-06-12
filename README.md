@@ -5,10 +5,12 @@ lab 目的：实现一个较为完整的TCP协议
 Lab0 字节流：
 类似于通道，实现字节流的基本功能，包括复制、读、写等功能。
 代码较简单，不放截图，实验结果如下所示：
+
 <img width="412" alt="image" src="https://github.com/lawlietqq/CS144-TCP-IP/assets/92260319/64d54151-7408-45aa-81cf-04d74896d520">
 
 Lab1 流重组器 StreamReassembler
 lab1的概念图如下所示：
+
 <img width="416" alt="image" src="https://github.com/lawlietqq/CS144-TCP-IP/assets/92260319/af556909-ec69-4492-9f7f-b6c4a5531e6a">
 
 本lab实现流重组器，负责在不可信的网络环境中实现可信传输，序号与子串一一对应，重组完成后将子串输入到ByteStream中为读取做准备，不可信传输主要有以下几种情况：
@@ -19,6 +21,7 @@ lab1的概念图如下所示：
 上图从左到右分别为字节流读取后，未读取（已处理）ByteStream，未处理三段，重组器最大容量为绿色加红色的部分
 
 流重组器的实现思路如下图所示：
+
 <img width="412" alt="image" src="https://github.com/lawlietqq/CS144-TCP-IP/assets/92260319/a9693878-84ba-4313-90fa-a2d1f76f7344">
 
 头文件新增私有成员如下：
